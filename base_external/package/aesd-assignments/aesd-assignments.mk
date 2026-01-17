@@ -6,11 +6,12 @@
 ##############################################################
 
 #TODO: Fill up the contents below in order to reference your assignment 3 git contents
-AESD_ASSIGNMENTS_VERSION = c6015219c678f36458149f4d609874f08b50bdf9
+AESD_ASSIGNMENTS_VERSION = 3a6c9095974ba59cb7ee49067186f13236b0b207
 # Note: Be sure to reference the *ssh* repository URL here (not https) to work properly
 # with ssh keys and the automated build/test system.
 # Your site should start with git@github.com:
 AESD_ASSIGNMENTS_SITE = git@github.com:meshalalhazmi/ecea5305-assignment3.git
+
 AESD_ASSIGNMENTS_SITE_METHOD = git
 AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
 
