@@ -1,0 +1,5 @@
+
+config BR2_PACKAGE_AESD_ASSIGNMENT5
+	bool "aesd-assignment5"
+	help
+	  Includes assignment5 files.
