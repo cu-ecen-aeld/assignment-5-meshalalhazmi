@@ -1,0 +1,54 @@
+#!/bin/sh
+
+create_node()
+{
+    DEVPATH="$1"   # e.g. /dev/faulty
+    DEVNAME="$2"   # name as it appears in /proc/devices (e.g. faulty, scull)
+    MINOR="$3"     # e.g. 0
+
+    [ -e "$DEVPATH" ] && return 0
+
+    MAJOR=$(awk -v n="$DEVNAME" '$2==n {print $1}' /proc/devices | head -n 1)
+    [ -z "$MAJOR" ] && return 1
+
+    mknod "$DEVPATH" c "$MAJOR" "$MINOR" || return 1
+    chmod 666 "$DEVPATH" 2>/dev/null || true
+    return 0
+}
+
+case "$1" in
+    start)
+        echo "S98lddmodules: loading modules"
+
+        modprobe scull 2>/dev/null || true
+        modprobe faulty 2>/dev/null || true
+        modprobe hello 2>/dev/null || true
+
+        # Create device nodes (only if missing)
+        create_node /dev/scull0 scull 0
+        create_node /dev/scull1 scull 1
+        create_node /dev/scull2 scull 2
+        create_node /dev/scull3 scull 3
+        create_node /dev/faulty faulty 0
+
+        ;;
+    stop)
+        echo "S98lddmodules: unloading modules"
+
+        rmmod hello 2>/dev/null || true
+        rmmod faulty 2>/dev/null || true
+        rmmod scull 2>/dev/null || true
+
+        rm -f /dev/faulty /dev/scull0 /dev/scull1 /dev/scull2 /dev/scull3
+        ;;
+    restart)
+        "$0" stop
+        "$0" start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0
