@@ -1,4 +1,6 @@
 menu "Project base packages"
 source "$BR2_EXTERNAL_project_base_PATH/package/aesd-assignments/Config.in"
 source "$BR2_EXTERNAL_project_base_PATH/package/aesd-assignment5/Config.in"
+source "$BR2_EXTERNAL_project_base_PATH/package/ldd/Config.in"
+
 endmenu
