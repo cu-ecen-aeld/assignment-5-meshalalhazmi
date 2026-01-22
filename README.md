@@ -1,9 +1,7 @@
 # Overview
 
-This repository contains assignment starter code for buildroot based assignments for the course Advanced Embedded Software Design, ECEN 5713
-
-It also contains instructions related to modifying your buildroot project to use with supported hardware platforms.  See [this wiki page](https://github.com/cu-ecen-5013/buildroot-assignments-base/wiki/Supported-Hardware) for details.
-
-
+ 
 Assignment 7 part 2 additional requirements 
-check out faulty-oops.md 
+check out faulty-oops.md  :white_check_mark:
+
+:white_check_mark: Assignment 7 repository should contain the minor changes to personalize the hello module  https://github.com/cu-ecen-aeld/assignment-7-meshalalhazmi
