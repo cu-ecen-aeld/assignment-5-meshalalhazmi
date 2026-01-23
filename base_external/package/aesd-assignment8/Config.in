@@ -1,0 +1,5 @@
+
+config BR2_PACKAGE_AESD_ASSIGNMENT8
+	bool "aesd-assignment8"
+	help
+	  Includes assignment 8 files.

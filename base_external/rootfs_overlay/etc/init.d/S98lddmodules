@@ -19,7 +19,6 @@ create_node()
 case "$1" in
     start)
         echo "S98lddmodules: loading modules"
-
         modprobe scull 2>/dev/null || true
         modprobe faulty 2>/dev/null || true
         modprobe hello 2>/dev/null || true
@@ -34,7 +33,6 @@ case "$1" in
         ;;
     stop)
         echo "S98lddmodules: unloading modules"
-
         rmmod hello 2>/dev/null || true
         rmmod faulty 2>/dev/null || true
         rmmod scull 2>/dev/null || true
